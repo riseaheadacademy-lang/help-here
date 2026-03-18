@@ -347,23 +347,26 @@
 
   /* ── SERVICES ── */
   .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5; /* Ensures the whole grid is above hero orbs */
+}
 
   .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.75rem;
-    position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    cursor: default;
-  }
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  position: relative;
+  /* overflow: hidden;  <-- REMOVE OR BE CAREFUL: This can sometimes block link triggers */
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+  pointer-events: auto; /* Force internal elements to catch clicks */
+}
   .service-card::before {
     content: '';
     position: absolute;
@@ -1127,7 +1130,7 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- Services -->
 <section id="services">
   <div class="container">
     <div class="section-header center reveal">
@@ -1144,9 +1147,9 @@
         <div class="service-desc">ATS-friendly CV optimized for tech internships. Stand out to recruiters at top Sri Lankan and global tech companies.</div>
         <div class="service-price">LKR 800</div>
         <div style="margin-top:1rem;">
-          <a href="https://wa.me/94774941420?text=Hi!%20I'm%20interested%20in%20the%20CV%20Writing%20service." class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
+          <!-- <a href="https://wa.me/94774941420?text=Hi!%20I'm%20interested%20in%20the%20CV%20Writing%20service." target="_blank" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
             Get Started →
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1156,9 +1159,9 @@
         <div class="service-desc">Modern developer portfolio website with free hosting. Showcase your projects and skills professionally online.</div>
         <div class="service-price">LKR 3,000</div>
         <div style="margin-top:1rem;">
-          <a href="https://wa.me/94774941420?text=Hi!%20I'd%20like%20to%20get%20a%20Portfolio%20Website%20built." class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
+          <!-- <a href="https://wa.me/94774941420?text=Hi!%20I'd%20like%20to%20get%20a%20Portfolio%20Website%20built." target="_blank" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
             Get Started →
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1168,9 +1171,9 @@
         <div class="service-desc">Best value bundle for a complete job-ready tech profile. Save LKR 300 compared to buying separately.</div>
         <div class="service-price">LKR 3,500 <span>bundle</span></div>
         <div style="margin-top:1rem;">
-          <a href="#pricing" class="btn-primary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;">
+          <!-- <a href="#pricing" class="btn-primary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;">
             View Bundle Details →
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1185,9 +1188,9 @@
         </div>
         <div class="service-price" style="margin-top:1rem;">LKR 700 <span>per pack</span></div>
         <div style="margin-top:0.75rem;">
-          <a href="https://wa.me/94774941420?text=Hi!%20I%20want%20to%20buy%20an%20Interview%20Question%20Pack." class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
+          <!-- <a href="https://wa.me/94774941420?text=Hi!%20I%20want%20to%20buy%20an%20Interview%20Question%20Pack." target="_blank" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
             Get Pack →
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1197,9 +1200,9 @@
         <div class="service-desc">One-on-one mock interviews with detailed feedback. Build confidence and interview skills before the real thing.</div>
         <div class="service-price" style="margin-top:0.75rem;">LKR 1,000</div>
         <div style="margin-top:1rem;">
-          <a href="https://wa.me/94774941420?text=Hi!%20I%20want%20to%20book%20a%20Mock%20Interview%20session." class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
+          <!-- <a href="https://wa.me/94774941420?text=Hi!%20I%20want%20to%20book%20a%20Mock%20Interview%20session." target="_blank" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
             Book Session →
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -1209,9 +1212,9 @@
         <div class="service-desc">Study the question pack, then put your skills to the test in a live mock interview session with expert feedback.</div>
         <div class="service-price">LKR 1,500</div>
         <div style="margin-top:1rem;">
-          <a href="#pricing" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
+          <!-- <a href="#pricing" class="btn-secondary" style="font-size:0.82rem;padding:0.5rem 1rem;text-decoration:none;border-radius:8px;display:inline-flex;gap:0.4rem;align-items:center;border:1px solid rgba(99,179,237,0.25);">
             View Details →
-          </a>
+          </a> -->
         </div>
       </div>
 
